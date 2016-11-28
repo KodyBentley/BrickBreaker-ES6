@@ -13,8 +13,12 @@ export default class Menu extends Phaser.State {
 		let level = 'level' + this.game.global.level;
 		let buttonPlay = new MenuButton(this.game, this.game.width * 0.5 + 50, 700, 'playButton', 'Game', level);
 			buttonPlay.scale.setTo(0.5);
+			
 		let buttonHighscore = new MenuButton(this.game, this.game.width * 0.5 + 50, 850, 'highScore', 'HighScore');
 			buttonHighscore.scale.setTo(0.5);
+
+		// let buttoneContinue = new MenuButton(this.game, this.game.width * 0.5 + 50, 500, 'btnContinue', 'LevelSelect');
+		// 	buttoneContinue.scale.setTo(0.5);
 
 
 		//Added onOver and onOut tweens for play button

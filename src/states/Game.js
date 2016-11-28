@@ -24,9 +24,7 @@ export default class Game extends Phaser.State {
 
 		this.game.physics.arcade.checkCollision.down = false;
 
-
 		this.paddle = new Paddle(this, 'paddleM');
-
 
 		this.balls = new Ball(this, 'ballM');
 

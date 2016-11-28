@@ -1579,41 +1579,67 @@ exports['default'] = LevelCompleted;
 module.exports = exports['default'];
 
 },{"objects/MenuButton":7}],17:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
+Object.defineProperty(exports, '__esModule', {
+	value: true
 });
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _objectsMenuButton = require('objects/MenuButton');
+
+var _objectsMenuButton2 = _interopRequireDefault(_objectsMenuButton);
 
 var LevelSelect = (function (_Phaser$State) {
-    _inherits(LevelSelect, _Phaser$State);
+	_inherits(LevelSelect, _Phaser$State);
 
-    function LevelSelect() {
-        _classCallCheck(this, LevelSelect);
+	function LevelSelect() {
+		_classCallCheck(this, LevelSelect);
 
-        _get(Object.getPrototypeOf(LevelSelect.prototype), "constructor", this).apply(this, arguments);
-    }
+		_get(Object.getPrototypeOf(LevelSelect.prototype), 'constructor', this).apply(this, arguments);
+	}
 
-    _createClass(LevelSelect, [{
-        key: "create",
-        value: function create() {}
-    }]);
+	_createClass(LevelSelect, [{
+		key: 'create',
+		value: function create() {
 
-    return LevelSelect;
+			var background = this.game.add.image(0, 0, 'gameBackground');
+
+			// let level = 'level' + this.game.global.level + 1;
+
+			var level = 'level' + this.game.global.level;
+
+			var buttonPlay = new _objectsMenuButton2['default'](this.game, this.game.width * 0.5 + 50, 700, 'playButton', 'Game', level);
+			buttonPlay.scale.setTo(0.5);
+
+			var level2 = this.game.add.text(650, 100, '2', {
+				fontSize: '64px',
+				fill: 'white'
+			});
+
+			var level3 = this.game.add.text(650, 200, '3', {
+				fontSize: '64px',
+				fill: 'white'
+			});
+		}
+	}]);
+
+	return LevelSelect;
 })(Phaser.State);
 
-exports["default"] = LevelSelect;
-module.exports = exports["default"];
+exports['default'] = LevelSelect;
+module.exports = exports['default'];
 
-},{}],18:[function(require,module,exports){
+},{"objects/MenuButton":7}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -1655,8 +1681,12 @@ var Menu = (function (_Phaser$State) {
 			var level = 'level' + this.game.global.level;
 			var buttonPlay = new _objectsMenuButton2['default'](this.game, this.game.width * 0.5 + 50, 700, 'playButton', 'Game', level);
 			buttonPlay.scale.setTo(0.5);
+
 			var buttonHighscore = new _objectsMenuButton2['default'](this.game, this.game.width * 0.5 + 50, 850, 'highScore', 'HighScore');
 			buttonHighscore.scale.setTo(0.5);
+
+			// let buttoneContinue = new MenuButton(this.game, this.game.width * 0.5 + 50, 500, 'btnContinue', 'LevelSelect');
+			// 	buttoneContinue.scale.setTo(0.5);
 
 			//Added onOver and onOut tweens for play button
 			buttonPlay.events.onInputOver.add(this.onOver, this);
