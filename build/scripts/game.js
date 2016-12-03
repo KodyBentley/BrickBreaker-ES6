@@ -1582,7 +1582,7 @@ module.exports = exports['default'];
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
-	value: true
+		value: true
 });
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -1600,40 +1600,40 @@ var _objectsMenuButton = require('objects/MenuButton');
 var _objectsMenuButton2 = _interopRequireDefault(_objectsMenuButton);
 
 var LevelSelect = (function (_Phaser$State) {
-	_inherits(LevelSelect, _Phaser$State);
+		_inherits(LevelSelect, _Phaser$State);
 
-	function LevelSelect() {
-		_classCallCheck(this, LevelSelect);
+		function LevelSelect() {
+				_classCallCheck(this, LevelSelect);
 
-		_get(Object.getPrototypeOf(LevelSelect.prototype), 'constructor', this).apply(this, arguments);
-	}
-
-	_createClass(LevelSelect, [{
-		key: 'create',
-		value: function create() {
-
-			var background = this.game.add.image(0, 0, 'gameBackground');
-
-			// let level = 'level' + this.game.global.level + 1;
-
-			var level = 'level' + this.game.global.level;
-
-			var buttonPlay = new _objectsMenuButton2['default'](this.game, this.game.width * 0.5 + 50, 700, 'playButton', 'Game', level);
-			buttonPlay.scale.setTo(0.5);
-
-			var level2 = this.game.add.text(650, 100, '2', {
-				fontSize: '64px',
-				fill: 'white'
-			});
-
-			var level3 = this.game.add.text(650, 200, '3', {
-				fontSize: '64px',
-				fill: 'white'
-			});
+				_get(Object.getPrototypeOf(LevelSelect.prototype), 'constructor', this).apply(this, arguments);
 		}
-	}]);
 
-	return LevelSelect;
+		_createClass(LevelSelect, [{
+				key: 'create',
+				value: function create() {
+
+						var background = this.game.add.image(0, 0, 'gameBackground');
+
+						// let level = 'level' + this.game.global.level + 1;
+
+						var level = 'level' + this.game.global.level;
+
+						var buttonPlay = new _objectsMenuButton2['default'](this.game, this.game.width * 0.5 + 50, 700, 'playButton', 'Game', level);
+						buttonPlay.scale.setTo(0.5);
+
+						var level2 = this.game.add.text(650, 100, '2', {
+								fontSize: '64px',
+								fill: 'white'
+						});
+
+						var level3 = this.game.add.text(650, 200, '3', {
+								fontSize: '64px',
+								fill: 'white'
+						});
+				}
+		}]);
+
+		return LevelSelect;
 })(Phaser.State);
 
 exports['default'] = LevelSelect;
@@ -1747,7 +1747,7 @@ module.exports = exports['default'];
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
-    value: true
+        value: true
 });
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -1759,114 +1759,114 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Preload = (function (_Phaser$State) {
-    _inherits(Preload, _Phaser$State);
+        _inherits(Preload, _Phaser$State);
 
-    function Preload() {
-        _classCallCheck(this, Preload);
+        function Preload() {
+                _classCallCheck(this, Preload);
 
-        _get(Object.getPrototypeOf(Preload.prototype), 'constructor', this).apply(this, arguments);
-    }
-
-    _createClass(Preload, [{
-        key: 'create',
-        value: function create() {
-            this.game.load.onLoadStart.add(this.loadStart, this);
-            this.game.load.onFileComplete.add(this.fileComplete, this);
-            this.game.load.onLoadComplete.add(this.loadComplete, this);
-            this.game.score = 0;
-
-            this.start();
+                _get(Object.getPrototypeOf(Preload.prototype), 'constructor', this).apply(this, arguments);
         }
-    }, {
-        key: 'start',
-        value: function start() {
-            //load game
-            this.game.load.image('playButton', 'assets/game/menues/BtnPlay.png');
 
-            this.game.load.image('highScore', 'assets/game/menues/BtnHighscore.png');
+        _createClass(Preload, [{
+                key: 'create',
+                value: function create() {
+                        this.game.load.onLoadStart.add(this.loadStart, this);
+                        this.game.load.onFileComplete.add(this.fileComplete, this);
+                        this.game.load.onLoadComplete.add(this.loadComplete, this);
+                        this.game.score = 0;
 
-            this.game.load.image('btnHome', 'assets/game/menues/BtnHome.png');
+                        this.start();
+                }
+        }, {
+                key: 'start',
+                value: function start() {
+                        //load game
+                        this.game.load.image('playButton', 'assets/game/menues/BtnPlay.png');
 
-            this.game.load.image('btnYes', 'assets/game/menues/BtnYes.png');
+                        this.game.load.image('highScore', 'assets/game/menues/BtnHighscore.png');
 
-            this.game.load.image('btnNo', 'assets/game/menues/BtnNo.png');
+                        this.game.load.image('btnHome', 'assets/game/menues/BtnHome.png');
 
-            this.game.load.image('btnBack', 'assets/game/menues/BtnBack.png');
+                        this.game.load.image('btnYes', 'assets/game/menues/BtnYes.png');
 
-            this.game.load.image('btnContinue', 'assets/game/menues/BtnContinue.png');
+                        this.game.load.image('btnNo', 'assets/game/menues/BtnNo.png');
 
-            this.game.load.image('menuBackground', 'assets/game/mainBackground.png');
+                        this.game.load.image('btnBack', 'assets/game/menues/BtnBack.png');
 
-            this.game.load.image('paddleM', 'assets/game/Paddle/M.png');
+                        this.game.load.image('btnContinue', 'assets/game/menues/BtnContinue.png');
 
-            this.game.load.image('turretLeft', 'assets/game/Paddle/turretLeft.png');
+                        this.game.load.image('menuBackground', 'assets/game/mainBackground.png');
 
-            this.game.load.image('turretRight', 'assets/game/Paddle/turretRight.png');
+                        this.game.load.image('paddleM', 'assets/game/Paddle/M.png');
 
-            this.game.load.image('greenLaser', 'assets/game/LaserGreen.png');
+                        this.game.load.image('turretLeft', 'assets/game/Paddle/turretLeft.png');
 
-            this.game.load.image('ballM', 'assets/game/Ball/Steel/M.png');
+                        this.game.load.image('turretRight', 'assets/game/Paddle/turretRight.png');
 
-            this.game.load.image('menuTitle', 'assets/game/menues/logo.png');
+                        this.game.load.image('greenLaser', 'assets/game/LaserGreen.png');
 
-            this.game.load.image('gameBackground', 'assets/game/backgrounds/background01.png');
+                        this.game.load.image('ballM', 'assets/game/Ball/Steel/M.png');
 
-            this.game.load.image('blueBrick', 'assets/game/Bricks/Rectangle/Blue/Blank.png');
+                        this.game.load.image('menuTitle', 'assets/game/menues/logo.png');
 
-            this.game.load.image('damaged', 'assets/game/Bricks/Rectangle/Damage.png');
+                        this.game.load.image('gameBackground', 'assets/game/backgrounds/background01.png');
 
-            this.game.load.image('redBrick', 'assets/game/Bricks/Rectangle/Red/Stripes.png');
+                        this.game.load.image('blueBrick', 'assets/game/Bricks/Rectangle/Blue/Blank.png');
 
-            this.game.load.image('yellowSquare', 'assets/game/Bricks/square/Yellow/Blank.png');
+                        this.game.load.image('damaged', 'assets/game/Bricks/Rectangle/Damage.png');
 
-            this.game.load.image('blueParticle', 'assets/game/fragments/blue/2.png');
+                        this.game.load.image('redBrick', 'assets/game/Bricks/Rectangle/Red/Stripes.png');
 
-            this.game.load.image('redParticle', 'assets/game/fragments/red/2.png');
+                        this.game.load.image('yellowSquare', 'assets/game/Bricks/square/Yellow/Blank.png');
 
-            this.game.load.image('yellowParticle', 'assets/game/fragments/yellow/2.png');
+                        this.game.load.image('blueParticle', 'assets/game/fragments/blue/2.png');
 
-            this.game.load.image('lives', 'assets/game/hud/lives.png');
+                        this.game.load.image('redParticle', 'assets/game/fragments/red/2.png');
 
-            this.game.load.spritesheet('paddleGrow', 'assets/game/items/PaddleGrow.png', 124, 124, 6);
+                        this.game.load.image('yellowParticle', 'assets/game/fragments/yellow/2.png');
 
-            this.game.load.spritesheet('paddleShrink', 'assets/game/items/PaddleShrink.png', 124, 124, 6);
+                        this.game.load.image('lives', 'assets/game/hud/lives.png');
 
-            this.game.load.spritesheet('healthUp', 'assets/game/items/HealthUp.png', 124, 124, 6);
+                        this.game.load.spritesheet('paddleGrow', 'assets/game/items/PaddleGrow.png', 124, 124, 6);
 
-            this.game.load.spritesheet('healthDown', 'assets/game/items/HealtMinus.png', 124, 124, 6);
+                        this.game.load.spritesheet('paddleShrink', 'assets/game/items/PaddleShrink.png', 124, 124, 6);
 
-            this.game.load.audio('ballPaddle', 'assets/sound/ball-paddle.mp3');
+                        this.game.load.spritesheet('healthUp', 'assets/game/items/HealthUp.png', 124, 124, 6);
 
-            this.game.load.audio('ballBrick', 'assets/sound/ball-brick.mp3');
+                        this.game.load.spritesheet('healthDown', 'assets/game/items/HealtMinus.png', 124, 124, 6);
 
-            this.game.load.audio('powerupSound', 'assets/sound/powerup.mp3');
+                        this.game.load.audio('ballPaddle', 'assets/sound/ball-paddle.mp3');
 
-            this.game.load.text('levels', 'assets/data/levels.json');
+                        this.game.load.audio('ballBrick', 'assets/sound/ball-brick.mp3');
 
-            // this.game.load.text('powerUps', 'assets/data/powerUps.json');
+                        this.game.load.audio('powerupSound', 'assets/sound/powerup.mp3');
 
-            this.loadStart();
-        }
-    }, {
-        key: 'loadStart',
-        value: function loadStart() {
-            this.game.load.start();
-        }
-    }, {
-        key: 'fileComplete',
-        value: function fileComplete(progress, cacheKey, success, totalLoaded, totalFiles) {
-            console.log("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
-        }
-    }, {
-        key: 'loadComplete',
-        value: function loadComplete() {
-            console.log('preload complete');
+                        this.game.load.text('levels', 'assets/data/levels.json');
 
-            this.game.stateChange.fadeOut(null, 'Menu');
-        }
-    }]);
+                        // this.game.load.text('powerUps', 'assets/data/powerUps.json');
 
-    return Preload;
+                        this.loadStart();
+                }
+        }, {
+                key: 'loadStart',
+                value: function loadStart() {
+                        this.game.load.start();
+                }
+        }, {
+                key: 'fileComplete',
+                value: function fileComplete(progress, cacheKey, success, totalLoaded, totalFiles) {
+                        console.log("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
+                }
+        }, {
+                key: 'loadComplete',
+                value: function loadComplete() {
+                        console.log('preload complete');
+
+                        this.game.stateChange.fadeOut(null, 'Menu');
+                }
+        }]);
+
+        return Preload;
 })(Phaser.State);
 
 exports['default'] = Preload;

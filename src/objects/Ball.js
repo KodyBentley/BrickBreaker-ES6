@@ -7,7 +7,7 @@ export default class Ball extends Phaser.Sprite {
 	}
 
 	setup() {
-		console.log('balls setup working');
+		console.log ('balls setup working');
 		this._parent.physics.arcade.enable(this);
 		this.anchor.setTo(0.5);
 		this.body.bounce.setTo(1);
