@@ -47,6 +47,10 @@ export default class Preload extends Phaser.State {
 
         this.game.load.image('redBrick', 'assets/game/Bricks/Rectangle/Red/Stripes.png');
 
+        this.game.load.image('greenBrick', 'assets/game/Bricks/Rectangle/Green/Inbox.png');
+
+        this.game.load.image('blueStripe', 'assets/game/Bricks/Rectangle/Blue/Stripes.png');
+
         this.game.load.image('yellowSquare', 'assets/game/Bricks/square/Yellow/Blank.png');
 
         this.game.load.image('blueParticle', 'assets/game/fragments/blue/2.png');
@@ -54,6 +58,8 @@ export default class Preload extends Phaser.State {
         this.game.load.image('redParticle', 'assets/game/fragments/red/2.png');
 
         this.game.load.image('yellowParticle', 'assets/game/fragments/yellow/2.png');
+
+        this.game.load.image('greenParticle', 'assets/game/fragments/green/2.png');
 
         this.game.load.image('lives', 'assets/game/hud/lives.png');
 
@@ -92,6 +98,6 @@ export default class Preload extends Phaser.State {
     loadComplete() {
         console.log('preload complete')
 
-        this.game.stateChange.fadeOut(null, 'Menu');
+        this.game.stateChange.fadeOut(null, 'LevelCompleted');
     }
 }

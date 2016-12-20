@@ -623,7 +623,7 @@ var Paddle = (function (_Phaser$Sprite) {
 		key: 'update',
 		value: function update() {
 			this._parent.physics.arcade.overlap(this, this._parent.powerUps.powerups, this.powerUpCollide, null, this);
-			this._parent.physics.arcade.collide(this.bullets, this._parent.bricks.blueBricks, this.onCollide, null, this);
+			// this._parent.physics.arcade.collide(this.bullets, this._parent.bricks.blueBricks, this.onCollide, null, this);
 
 			this.x = this._parent.input.x;
 			// this.turretLeft.x = this.x - 150;
@@ -1263,6 +1263,10 @@ var Game = (function (_Phaser$State) {
 		key: 'levelComplete',
 		value: function levelComplete() {
 			this.game.global.level++;
+			if (this.game.global.level > 5) {
+
+				this.state.start('LevelCompleted');
+			}
 			if (this.game.score >= localStorage.getItem('HighScore')) {
 				localStorage.setItem('HighScore', this.game.score);
 			} else if (this.game.score < localStorage.getItem('HighScore')) {
@@ -1280,11 +1284,10 @@ var Game = (function (_Phaser$State) {
 	}, {
 		key: 'render',
 		value: function render() {
-			// this.game.debug.text(this.game.time.fps || '--', 20, 70, "#00ff00", "40px Courier");
+			this.game.debug.text(this.game.time.fps || '--', 20, 70, "#00ff00", "40px Courier");
 			// // this.game.debug.spriteBounds(this.powerUp);
 			// // this.game.debug.body(this.powerUp);
 			// this.game.debug.text("Time until event: " + this.game.time.events.duration, 32, 32);
-
 		}
 	}]);
 
@@ -1334,6 +1337,11 @@ var Gameover = (function (_Phaser$State) {
 
 			this.gameOvertext = this.game.add.text(650, 30, 'Gameover', {
 				fontSize: '64px',
+				fill: 'white'
+			});
+
+			this.ranOutText = this.game.add.text(655, 115, 'You ran out of lives!', {
+				fontSize: '32px',
 				fill: 'white'
 			});
 
@@ -1512,25 +1520,38 @@ var LevelCompleted = (function (_Phaser$State) {
 				fill: 'white'
 			});
 
-			this.continuePlayingText = this.game.add.text(675, 500, 'Continue Playing?', {
-				fontSize: '32px',
-				fill: 'white'
-			});
+			if (this.game.global.level < 5) {
+				var continuePlayingText = this.game.add.text(675, 500, 'Continue Playing?', {
+					fontSize: '32px',
+					fill: 'white'
+				});
 
-			var level = 'level' + this.game.global.level;
+				var level = 'level' + this.game.global.level;
 
-			var buttonYes = new _objectsMenuButton2['default'](this.game, this.game.width * 0.5 - 150, 700, 'btnYes', 'Game', level);
-			buttonYes.scale.setTo(0.8);
+				var buttonYes = new _objectsMenuButton2['default'](this.game, this.game.width * 0.5 - 150, 700, 'btnYes', 'Game', level);
+				buttonYes.scale.setTo(0.8);
 
-			var buttonNo = new _objectsMenuButton2['default'](this.game, this.game.width * 0.5 + 150, 700, 'btnNo', 'Menu');
-			buttonNo.scale.setTo(0.8);
+				var buttonNo = new _objectsMenuButton2['default'](this.game, this.game.width * 0.5 + 150, 700, 'btnNo', 'Menu');
+				buttonNo.scale.setTo(0.8);
 
-			//Added onOver and onOut tweens for play button
-			buttonYes.events.onInputOver.add(this.onOverYes, this);
-			buttonYes.events.onInputOut.add(this.onOutYes, this);
+				//Added onOver and onOut tweens for play button
+				buttonYes.events.onInputOver.add(this.onOverYes, this);
+				buttonYes.events.onInputOut.add(this.onOutYes, this);
 
-			buttonNo.events.onInputOver.add(this.onOverNo, this);
-			buttonNo.events.onInputOut.add(this.onOutNo, this);
+				buttonNo.events.onInputOver.add(this.onOverNo, this);
+				buttonNo.events.onInputOut.add(this.onOutNo, this);
+			} else if (this.game.global.level >= 5) {
+				this.game.global.level = 1;
+				var continuePlayingText = this.game.add.text(this.game.width * 0.5 - 350, 125, 'You have finsihed the game. Thank you for playing!', {
+					fontSize: '32px',
+					fill: 'white'
+				});
+				var buttonHighscore = new _objectsMenuButton2['default'](this.game, this.game.width * 0.5 + 50, 850, 'highScore', 'HighScore');
+				buttonHighscore.scale.setTo(0.5);
+
+				buttonHighscore.events.onInputOver.add(this.onOverHighscore, this);
+				buttonHighscore.events.onInputOut.add(this.onOutHighScore, this);
+			}
 		}
 
 		//Tween play button when the mouse is over
@@ -1568,6 +1589,26 @@ var LevelCompleted = (function (_Phaser$State) {
 			this.game.add.tween(buttonNo.scale).to({
 				x: 0.8,
 				y: 0.8
+			}, 350, Phaser.Easing.Linear.In).start();
+		}
+	}, {
+		key: 'onOverHighscore',
+		value: function onOverHighscore(buttonHighscore) {
+
+			this.game.add.tween(buttonHighscore.scale).to({
+				x: 0.8,
+				y: 0.8
+			}, 350, Phaser.Easing.Linear.In).start();
+		}
+
+		//Tween play button when mouse is no longer over
+	}, {
+		key: 'onOutHighScore',
+		value: function onOutHighScore(buttonHighscore) {
+
+			this.game.add.tween(buttonHighscore.scale).to({
+				x: 0.5,
+				y: 0.5
 			}, 350, Phaser.Easing.Linear.In).start();
 		}
 	}]);
@@ -1817,6 +1858,10 @@ var Preload = (function (_Phaser$State) {
 
                         this.game.load.image('redBrick', 'assets/game/Bricks/Rectangle/Red/Stripes.png');
 
+                        this.game.load.image('greenBrick', 'assets/game/Bricks/Rectangle/Green/Inbox.png');
+
+                        this.game.load.image('blueStripe', 'assets/game/Bricks/Rectangle/Blue/Stripes.png');
+
                         this.game.load.image('yellowSquare', 'assets/game/Bricks/square/Yellow/Blank.png');
 
                         this.game.load.image('blueParticle', 'assets/game/fragments/blue/2.png');
@@ -1824,6 +1869,8 @@ var Preload = (function (_Phaser$State) {
                         this.game.load.image('redParticle', 'assets/game/fragments/red/2.png');
 
                         this.game.load.image('yellowParticle', 'assets/game/fragments/yellow/2.png');
+
+                        this.game.load.image('greenParticle', 'assets/game/fragments/green/2.png');
 
                         this.game.load.image('lives', 'assets/game/hud/lives.png');
 
@@ -1862,7 +1909,7 @@ var Preload = (function (_Phaser$State) {
                 value: function loadComplete() {
                         console.log('preload complete');
 
-                        this.game.stateChange.fadeOut(null, 'Menu');
+                        this.game.stateChange.fadeOut(null, 'LevelCompleted');
                 }
         }]);
 

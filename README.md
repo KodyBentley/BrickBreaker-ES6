@@ -1,4 +1,4 @@
-Squares -- Nicholas Mordecai
+Brick Breaker -- Kody Bentley
 ---------------------------
 
 ## Setup

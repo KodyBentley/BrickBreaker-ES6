@@ -39,6 +39,10 @@ export default class Game extends Phaser.State {
 
 	levelComplete() {
 		this.game.global.level++;
+		if(this.game.global.level > 5) {
+			
+			this.state.start('LevelCompleted');
+		}
 		if (this.game.score >= localStorage.getItem('HighScore')) {
 			localStorage.setItem('HighScore', this.game.score);
 		} else if (this.game.score < localStorage.getItem('HighScore')) {
@@ -55,7 +59,7 @@ export default class Game extends Phaser.State {
 
 
 	render() {
-		// this.game.debug.text(this.game.time.fps || '--', 20, 70, "#00ff00", "40px Courier");
+		this.game.debug.text(this.game.time.fps || '--', 20, 70, "#00ff00", "40px Courier");
 		// // this.game.debug.spriteBounds(this.powerUp);
 		// // this.game.debug.body(this.powerUp);
 		// this.game.debug.text("Time until event: " + this.game.time.events.duration, 32, 32);

@@ -15,6 +15,11 @@ export default class Gameover extends Phaser.State {
 			fill: 'white'
 		});
 
+		this.ranOutText = this.game.add.text(655, 115, 'You ran out of lives!', {
+			fontSize: '32px',
+			fill: 'white'
+		});
+
 
 
 		//Create menu button

@@ -40,7 +40,7 @@ export default class Paddle extends Phaser.Sprite {
 
 	update() {
 		this._parent.physics.arcade.overlap(this, this._parent.powerUps.powerups, this.powerUpCollide, null, this);
-		this._parent.physics.arcade.collide(this.bullets, this._parent.bricks.blueBricks, this.onCollide, null, this);
+		// this._parent.physics.arcade.collide(this.bullets, this._parent.bricks.blueBricks, this.onCollide, null, this);
 
 
 		this.x = this._parent.input.x;

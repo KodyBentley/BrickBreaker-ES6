@@ -1,7 +1,7 @@
 {
-  "name": "Number-Puzzle-Solver",
+  "name": "Brick Breaker!",
   "version": "1.0.1",
-  "description": "Custom ES6 Boiler Plate - Basic Phaser State Implementation",
+  "description": "ES6 Brick Breaker clone using Phaser",
   "main": "src/index.js",
   "scripts": {
     "start": "gulp",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/megmut/9d3h7zShUW46wpy2"
+    "url": "https://github.com/KodyBentley/BrickBreaker-ES6"
   },
   "author": "Nicholas Mordecai",
   "license": "MIT",
@@ -28,6 +28,6 @@
     "yargs": "^3.16.1"
   },
   "dependencies": {
-    "phaser": "^2.4.1"
+    "phaser": "^2.6.2"
   }
 }
