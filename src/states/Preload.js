@@ -98,6 +98,6 @@ export default class Preload extends Phaser.State {
     loadComplete() {
         console.log('preload complete')
 
-        this.game.stateChange.fadeOut(null, 'LevelCompleted');
+        this.game.stateChange.fadeOut(null, 'Menu');
     }
 }
