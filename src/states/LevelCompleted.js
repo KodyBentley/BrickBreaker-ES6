@@ -35,7 +35,7 @@ export default class LevelCompleted extends Phaser.State {
 
 			buttonNo.events.onInputOver.add(this.onOverNo, this);
 			buttonNo.events.onInputOut.add(this.onOutNo, this);
-		} else if (this.game.global.level >= 5) {
+		} else if (this.game.global.level > 5) {
 			this.game.global.level = 1;
 			let continuePlayingText = this.game.add.text(this.game.width * 0.5 - 350, 125, 'You have finsihed the game. Thank you for playing!', {
 				fontSize: '32px',

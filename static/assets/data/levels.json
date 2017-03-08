@@ -647,7 +647,7 @@
 		"general": {
 			"dropTime": 5000,
 			"hp": 1,
-			"emitter": "woodParticle"
+			"emitter": "blueParticle"
 		},
 		"powerups": [{
 			"texture": "paddleGrow",
