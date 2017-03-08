@@ -15,7 +15,7 @@ export default class LevelCompleted extends Phaser.State {
 			fill: 'white'
 		});
 
-		if (this.game.global.level < 5) {
+		if (this.game.global.level <= 5) {
 			let continuePlayingText = this.game.add.text(675, 500, 'Continue Playing?', {
 				fontSize: '32px',
 				fill: 'white'
